@@ -788,7 +788,7 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <div className="relative flex items-center h-10 shrink-0">
                   <img 
-                    src="logoapicoleteira.jpg" 
+                    src="logo.jpg" 
                     alt="Logo Apicoleteira" 
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
