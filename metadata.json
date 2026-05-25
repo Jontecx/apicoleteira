@@ -1,6 +1,0 @@
-{
-  "name": "Apicoleteira",
-  "description": "Máquinas industriais e artesanais de sorvete de massa e picolé em Inox 304 com tradição desde 1972.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
