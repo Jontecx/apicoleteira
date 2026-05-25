@@ -200,7 +200,7 @@ export default function App() {
           <a href="#inicio" className="flex items-center gap-3 group">
             <div className="relative flex items-center h-10 shrink-0">
               <img 
-                src="logoapicoleteira.jpg" 
+                src="logo.jpg" 
                 alt="Logo Apicoleteira" 
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -337,7 +337,7 @@ export default function App() {
             {/* Beautiful cutout image of gourmet ice cream scoops in a cup as displayed in the mockup */}
             <div className="relative w-full max-w-[420px] md:max-w-[480px]">
               <img
-                src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200&auto=format&fit=crop"
+                src="dobra1.png"
                 alt="Gourmet Ice Cream from Apicoleteira"
                 className="w-full h-auto object-contain drop-shadow-3xl transform hover:scale-102 transition-transform duration-500"
               />
@@ -475,7 +475,7 @@ export default function App() {
             {/* Square Image Left: Aspect-aware and gentle rounded on mobile */}
             <div className="w-full relative aspect-[4/3] lg:aspect-square overflow-hidden bg-white rounded-2xl lg:rounded-none shadow-md lg:shadow-none">
               <img
-                src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200&auto=format&fit=crop"
+                src="maquina.png"
                 alt="Aço Inox Apicoleteira"
                 className="w-full h-full object-cover pointer-events-none"
               />
