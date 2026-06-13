@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apicoleteira</title>
+    <script>
+      // Prevent formdata-polyfill from overriding window.fetch in the sandboxed preview iframe
+      if (typeof window !== 'undefined') {
+        if (typeof window.FormData === 'undefined') {
+          window.FormData = class FormData {};
+        }
+        if (window.FormData.prototype && !window.FormData.prototype.keys) {
+          window.FormData.prototype.keys = function() { return []; };
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
