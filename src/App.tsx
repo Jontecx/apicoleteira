@@ -316,7 +316,7 @@ export default function App() {
             {/* Beautiful cutout image of gourmet ice cream scoops in a cup with dobra1.png and fallback */}
             <div className="relative w-full max-w-[420px] md:max-w-[480px]">
               <img
-                src="dobra1.png"
+                src="dobra1.webp"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200&auto=format&fit=crop";
                 }}
@@ -452,7 +452,7 @@ export default function App() {
             {/* Square Image Left: Aspect-aware and gentle rounded on mobile with maquina.png */}
             <div className="w-full relative aspect-[4/3] lg:aspect-square overflow-hidden bg-white rounded-2xl lg:rounded-none shadow-md lg:shadow-none border border-[#cdea8c]">
               <img
-                src="maquina.png"
+                src="maquina.webp"
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=1200&auto=format&fit=crop";
@@ -772,7 +772,7 @@ export default function App() {
               <div className="flex items-center gap-3">
                 <div className="relative flex items-center h-10 shrink-0">
                   <img 
-                    src="logo.jpg" 
+                    src="logo.webp" 
                     loading="lazy"
                     alt="Logo Apicoleteira" 
                     onError={(e) => {
