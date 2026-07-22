@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#f0fdf4" />
+    <title>Apicoleteira - Tradição e Inox Desde 1972</title>
+
+    <!-- Network Preconnects for Faster Remote Image & Asset Fetching -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Preload Critical Above-The-Fold Logo WebP -->
+    <link rel="preload" as="image" href="logo.webp" type="image/webp" />
+
+    <style>
+      /* Immediate fast font rendering with zero invisible text block (FOIT) */
+      @supports (font-display: swap) {
+        * { font-display: swap; }
+      }
+    </style>
+
+    <script>
+      // Prevent formdata-polyfill from overriding window.fetch in the sandboxed preview iframe
+      if (typeof window !== 'undefined') {
+        if (typeof window.FormData === 'undefined') {
+          window.FormData = class FormData {};
+        }
+        if (window.FormData.prototype && !window.FormData.prototype.keys) {
+          window.FormData.prototype.keys = function() { return []; };
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#fafaf5] text-slate-900 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
