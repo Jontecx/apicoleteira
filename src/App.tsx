@@ -507,7 +507,7 @@ export default function App() {
                         src={post.imageUrl}
                         loading="lazy"
                         decoding="async"
-                        alt={post.username}
+                        alt="Depoimento Apicoleteira"
                         className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
                       />
                     </picture>
@@ -515,50 +515,29 @@ export default function App() {
                     {/* Dark gradient readability overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-black/30 pointer-events-none" />
 
-                    {/* Top Reels Header */}
+                    {/* Top Header Tag */}
                     <div className="relative z-10 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
-                        <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
-                        <span className="text-[8px] sm:text-[9px] font-mono font-bold text-white tracking-wider">REELS 9:16</span>
-                      </div>
-                      
-                      <span className="bg-[#cdea8c] text-[#18077b] text-[8.5px] sm:text-[9.5px] font-mono font-black py-1 px-3 rounded-full shadow-md uppercase tracking-wider">
+                      <span className="bg-[#cdea8c] text-[#18077b] text-[9px] sm:text-[10px] font-mono font-black py-1 px-3 rounded-full shadow-md uppercase tracking-wider">
                         {post.growth}
                       </span>
                     </div>
 
                     {/* Middle Testimonial Content */}
                     <div className="relative z-10 my-auto whitespace-normal select-none py-2">
-                      <div className="text-[#cdea8c] opacity-40 text-4xl font-serif h-3 -ml-1">“</div>
-                      <p className="text-[12px] sm:text-[13.5px] text-white leading-relaxed font-bold font-sans drop-shadow-md">
+                      <div className="text-[#cdea8c] opacity-50 text-4xl font-serif h-3 -ml-1">“</div>
+                      <p className="text-[12.5px] sm:text-[14px] text-white leading-relaxed font-bold font-sans drop-shadow-md">
                         {post.testimonial}
                       </p>
-                      <div className="text-[#cdea8c] opacity-40 text-4xl font-serif h-2 text-right -mr-1">”</div>
+                      <div className="text-[#cdea8c] opacity-50 text-4xl font-serif h-2 text-right -mr-1">”</div>
                     </div>
 
-                    {/* Bottom Author & Engagement */}
-                    <div className="relative z-10 border-t border-white/15 pt-3 flex flex-col gap-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#18077b] to-[#cdea8c] flex items-center justify-center text-white text-[10px] font-mono font-black shadow-md uppercase border border-white/20">
-                            {post.username.substring(0, 2)}
-                          </div>
-                          <div className="flex flex-col text-left">
-                            <span className="text-[11px] sm:text-[12px] font-black text-white font-mono leading-none drop-shadow">
-                              @{post.username}
-                            </span>
-                            <span className="text-[9px] text-[#cdea8c] mt-0.5 font-mono uppercase font-bold">
-                              📍 {post.location}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-1 bg-black/50 backdrop-blur-md px-2 py-1 rounded-full border border-white/10">
-                          <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-                          <span className="text-[9.5px] font-black text-white font-mono">
-                            {post.likes.toLocaleString()}
-                          </span>
-                        </div>
+                    {/* Bottom Tranquil Footer */}
+                    <div className="relative z-10 border-t border-white/15 pt-3 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <div className="w-2 h-2 rounded-full bg-[#cdea8c]" />
+                        <span className="text-[10px] font-mono font-bold text-white/90 tracking-wide uppercase">
+                          Apicoleteira · Negócio Local
+                        </span>
                       </div>
                     </div>
 

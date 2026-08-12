@@ -56,58 +56,58 @@ export const PRODUCT_FEATURES: ProductFeature[] = [
 export const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: "post-1",
-    username: "sorvetes_do_bosque",
+    username: "cliente_satisfeito",
     location: "São Paulo, SP",
     imageUrl: "/post-1.jpg",
     avifUrl: "/post-1.avif",
     webpUrl: "/post-1.webp",
     likes: 1245,
-    testimonial: "Nossa produção triplicou e a máquina de sorvete retrô é a maior atração da loja! Clientes amam filmar o sorvete saindo cremoso.",
-    growth: "+140% no faturamento"
+    testimonial: "A Apicoleteira transformou o nosso negócio local! A equipe explicou com todo carinho e paciência o funcionamento da máquina, abrindo uma nova perspectiva de vendas para a nossa loja.",
+    growth: "Nova perspectiva de vendas"
   },
   {
     id: "post-2",
-    username: "picoles_artesanais_sul",
+    username: "parceiro_local",
     location: "Curitiba, PR",
     imageUrl: "/post-2.jpg",
     avifUrl: "/post-2.avif",
     webpUrl: "/post-2.webp",
     likes: 852,
-    testimonial: "Fabricação robusta em aço inox. A refrigeração não falha mesmo nas semanas de pico. Os picolés saem perfeitos, sem bolhas de ar.",
-    growth: "Retorno do investimento em 4 meses"
+    testimonial: "Um agradecimento especial ao suporte via WhatsApp, que é impecável e sempre muito rápido para nos atender e tirar qualquer dúvida no dia a dia.",
+    growth: "Suporte via WhatsApp nota 10"
   },
   {
     id: "post-3",
-    username: "retro_creams",
+    username: "comercio_do_bairro",
     location: "Salvador, BA",
     imageUrl: "/post-3.jpg",
     avifUrl: "/post-3.avif",
     webpUrl: "/post-3.webp",
     likes: 2130,
-    testimonial: "A receita tradicional enviada pelo Sr. Aurélio virou o nosso campeão de vendas. O gosto do sorvete americano de antigamente é imbatível!",
-    growth: "+300 litros diários"
+    testimonial: "Atendimento atencioso do começo ao fim. Nos ensinaram a manusear tudo passo a passo. Trouxe um diferencial enorme para a nossa loja e fortaleceu nossas vendas.",
+    growth: "Negócio local fortalecido"
   },
   {
     id: "post-4",
-    username: "delicias_da_infancia",
+    username: "empreendedor_satisfeito",
     location: "Campinas, SP",
     imageUrl: "/post-4.jpg",
     avifUrl: "/post-4.avif",
     webpUrl: "/post-4.webp",
     likes: 981,
-    testimonial: "Apicoleteira é sinônimo de resistência. Nossa máquina trabalha 12h por dia sem perder a constância de refrigeração. Nota dez!",
-    growth: "Abriu 2ª filial"
+    testimonial: "Incrível como a equipe se dedica a explicar cada detalhe de operação. O suporte sempre presente pelo WhatsApp nos deu total tranquilidade e confiança.",
+    growth: "Atendimento diferenciado"
   },
   {
     id: "post-5",
-    username: "gelateria_aurora",
+    username: "sorveteria_de_bairro",
     location: "Belo Horizonte, MG",
     imageUrl: "/post-5.jpg",
     avifUrl: "/post-5.avif",
     webpUrl: "/post-5.webp",
     likes: 1540,
-    testimonial: "Sorvete denso, brilhoso e muito lucrativo. O toque de nostalgia do picolé vintage atrai tanto crianças quanto adultos saudosistas.",
-    growth: "80% de margem de lucro"
+    testimonial: "Só temos a agradecer a toda a equipe da Apicoleteira! A máquina trouxe uma nova movimentação para o nosso comércio e o acompanhamento é espetacular.",
+    growth: "Sucesso de vendas local"
   }
 ];
 
