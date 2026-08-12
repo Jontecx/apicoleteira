@@ -37,8 +37,9 @@ export default function App() {
   const [contactState, setContactState] = useState("");
 
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
+  const [isTestimonialPaused, setIsTestimonialPaused] = useState(false);
 
-  // Testimonials manual scroll control (optimized for mouse wheel, buttons and mobile touch)
+  // Testimonials manual & automatic scroll control
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
 
   const scrollTestimonials = (direction: "left" | "right") => {
@@ -51,6 +52,26 @@ export default function App() {
       });
     }
   };
+
+  // Automatic right-to-left continuous scroll for Lucro Real section
+  useEffect(() => {
+    if (isTestimonialPaused) return;
+
+    const interval = setInterval(() => {
+      if (testimonialScrollRef.current) {
+        const container = testimonialScrollRef.current;
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        
+        if (container.scrollLeft >= maxScroll - 20) {
+          container.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          container.scrollBy({ left: 330, behavior: "smooth" });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isTestimonialPaused]);
 
   useEffect(() => {
     let ticking = false;
@@ -129,29 +150,18 @@ export default function App() {
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3 group">
             <div className="relative flex items-center h-10 shrink-0">
-              <img 
-                src="logo.webp" 
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                alt="Logo Apicoleteira" 
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.dataset.triedJpg) {
-                    target.dataset.triedJpg = "true";
-                    target.src = "logo.jpg";
-                  } else {
-                    target.style.display = 'none';
-                    const fallback = target.nextElementSibling as HTMLElement;
-                    if (fallback) fallback.classList.remove('hidden');
-                  }
-                }}
-                className="max-h-10 w-auto object-contain select-none"
-              />
-              <div className="logo hidden flex items-center gap-1">
-                <div className="w-4 h-4 rounded-[4px] bg-[#000000] -rotate-20" />
-                <div className="w-4 h-4 rounded-[4px] bg-[#cdea8c] rotate-20 -ml-2.5" />
-              </div>
+              <picture>
+                <source srcset="/logo.avif" type="image/avif" />
+                <source srcset="/logo.webp" type="image/webp" />
+                <img 
+                  src="/logo.jpg" 
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  alt="Logo Apicoleteira" 
+                  className="max-h-10 w-auto object-contain select-none"
+                />
+              </picture>
             </div>
             <span className="font-sans font-black text-sm md:text-base text-[#18077b] tracking-widest uppercase transition-colors">
               APICOLETEIRA
@@ -253,22 +263,18 @@ export default function App() {
 
             {/* Cutout image */}
             <div className="relative w-full max-w-[420px] md:max-w-[480px]">
-              <img
-                src="dobra1.webp"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.dataset.triedPng) {
-                    target.dataset.triedPng = "true";
-                    target.src = "dobra1.png";
-                  } else {
-                    target.src = "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=70&w=600&auto=format&fit=crop&fm=webp";
-                  }
-                }}
-                alt="Gourmet Ice Cream from Apicoleteira"
-                className="w-full h-auto object-contain drop-shadow-2xl"
-              />
+              <picture>
+                <source srcset="/dobra1.avif" type="image/avif" />
+                <source srcset="/dobra1.webp" type="image/webp" />
+                <img
+                  src="/dobra1.jpg"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  alt="Gourmet Ice Cream from Apicoleteira"
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                />
+              </picture>
             </div>
 
           </div>
@@ -322,22 +328,17 @@ export default function App() {
                   className="relative aspect-video w-full bg-black cursor-pointer group/tv overflow-hidden"
                   onClick={() => setShowVideoModal(true)}
                 >
-                  <img
-                    src="dobra1.webp"
-                    loading="lazy"
-                    decoding="async"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.dataset.triedPng) {
-                        target.dataset.triedPng = "true";
-                        target.src = "dobra1.png";
-                      } else {
-                        target.src = "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=70&w=600&auto=format&fit=crop&fm=webp";
-                      }
-                    }}
-                    alt="Apicoleteira Dobra 1"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover/tv:scale-105"
-                  />
+                  <picture className="w-full h-full">
+                    <source srcset="/dobra1.avif" type="image/avif" />
+                    <source srcset="/dobra1.webp" type="image/webp" />
+                    <img
+                      src="/dobra1.jpg"
+                      loading="lazy"
+                      decoding="async"
+                      alt="Apicoleteira Dobra 1"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover/tv:scale-105"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-black/40 group-hover/tv:bg-black/20 transition-colors flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full bg-[#18077b] text-white flex items-center justify-center shadow-lg transition-transform duration-200 group-hover/tv:scale-110">
                       <Play className="w-6 h-6 fill-white translate-x-0.5" />
@@ -380,28 +381,23 @@ export default function App() {
             
             {/* Square Image Left */}
             <div className="w-full relative aspect-[4/3] lg:aspect-square overflow-hidden bg-white rounded-2xl lg:rounded-none shadow-md lg:shadow-none border border-[#cdea8c]">
-              <img
-                src="maquina.webp"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (!target.dataset.triedPng) {
-                    target.dataset.triedPng = "true";
-                    target.src = "maquina.png";
-                  } else {
-                    target.src = "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=70&w=600&auto=format&fit=crop&fm=webp";
-                  }
-                }}
-                alt="Aço Inox Apicoleteira"
-                className="w-full h-full object-cover pointer-events-none"
-              />
+              <picture className="w-full h-full">
+                <source srcset="/maquina.avif" type="image/avif" />
+                <source srcset="/maquina.webp" type="image/webp" />
+                <img
+                  src="/maquina.jpg"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Aço Inox Apicoleteira"
+                  className="w-full h-full object-cover pointer-events-none"
+                />
+              </picture>
             </div>
 
             {/* Description Right */}
             <div className="text-left flex flex-col justify-center space-y-5 lg:pl-6">
               <h3 className="font-sans font-black text-2xl sm:text-4.5xl text-[#000000] uppercase tracking-tight leading-none">
-                Construção Retrô <br /> com a modernidade do aço.
+                Máquinas modernas <br /> e com boa duração.
               </h3>
 
               <ul className="space-y-4 text-[#000000] font-normal mt-2">
@@ -419,8 +415,8 @@ export default function App() {
                     <CheckCircle className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <strong className="text-[#18077b] font-bold block leading-tight">Alta Potência Hermética</strong>
-                    <span className="text-xs sm:text-sm text-[#000000] opacity-85">Mantemos a altíssima constância de refrigeração dimensionada para render perfeitamente mesmo sob as temperaturas mais quentes do Brasil.</span>
+                    <strong className="text-[#18077b] font-bold block leading-tight">Alta Potência</strong>
+                    <span className="text-xs sm:text-sm text-[#000000] opacity-85">Sorvetes saem com uma ótima qualidade mesmo sob as temperaturas mais quentes do Brasil.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -429,22 +425,10 @@ export default function App() {
                   </div>
                   <div>
                     <strong className="text-[#18077b] font-bold block leading-tight">Suporte Técnico Detalhado</strong>
-                    <span className="text-xs sm:text-sm text-[#000000] opacity-85">Acompanhamento e acesso vitalício a receitas de sabores tradicionais americanos sob a curadoria da Empresa Apicoleteira.</span>
+                    <span className="text-xs sm:text-sm text-[#000000] opacity-85">Suporte e acesso à nossa equipe e manuais de como manusear nossas máquinas.</span>
                   </div>
                 </li>
               </ul>
-
-              <div className="pt-4">
-                <a
-                  href={getWhatsAppLink("Olá! Gostaria de saber mais sobre a durabilidade e especificações técnicas da máquina de sorvete americana em Aço Inox.")}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 text-xs font-black text-[#18077b] hover:opacity-80 uppercase tracking-widest transition-colors group"
-                >
-                  <span>Solicitar ficha técnica do Inox</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
             </div>
 
           </div>
@@ -490,10 +474,14 @@ export default function App() {
             </div>
           </div>
 
-          {/* MANUAL SCROLL TRACK */}
+          {/* AUTO-SCROLLING TRACK (RIGHT TO LEFT AUTOMATICALLY) */}
           <div className="relative w-full py-2">
             <div 
               ref={testimonialScrollRef}
+              onMouseEnter={() => setIsTestimonialPaused(true)}
+              onMouseLeave={() => setIsTestimonialPaused(false)}
+              onTouchStart={() => setIsTestimonialPaused(true)}
+              onTouchEnd={() => setIsTestimonialPaused(false)}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 px-1 scroll-smooth"
               style={{
                 WebkitOverflowScrolling: "touch",
@@ -504,60 +492,77 @@ export default function App() {
               {INSTAGRAM_POSTS.map((post, index) => (
                 <div
                   key={`${post.id}-${index}`}
-                  className="shrink-0 w-[260px] sm:w-[310px] rounded-[24px] sm:rounded-[32px] bg-white border-4 border-[#cdea8c] p-3 sm:p-4.5 overflow-hidden shadow-md flex flex-col relative group transition-all duration-300 hover:border-[#18077b] hover:shadow-lg text-left snap-start"
+                  className="shrink-0 w-[260px] sm:w-[290px] rounded-[24px] sm:rounded-[32px] bg-slate-950 border-4 border-[#cdea8c] p-2.5 sm:p-3 overflow-hidden shadow-xl flex flex-col relative group transition-all hover:border-[#18077b] text-left snap-start"
                 >
+                  {/* 9:16 ASPECT RATIO REELS CARD CONTAINER */}
                   <div 
                     style={{ aspectRatio: "9/16" }}
-                    className="relative w-full bg-white rounded-[20px] shrink-0 border border-slate-100 flex flex-col justify-between p-5 text-left bg-gradient-to-b from-[#fafafa] via-white to-[#fdfdfd]"
+                    className="relative w-full rounded-[20px] overflow-hidden flex flex-col justify-between p-4 sm:p-5 text-left bg-slate-900 border border-slate-800"
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1">
-                        <div className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
-                        <span className="text-[8px] font-mono font-bold text-slate-400 tracking-wider">REELS REC</span>
+                    {/* Background Image with AVIF -> WebP -> JPG support */}
+                    <picture className="absolute inset-0 w-full h-full pointer-events-none">
+                      {post.avifUrl && <source srcset={post.avifUrl} type="image/avif" />}
+                      {post.webpUrl && <source srcset={post.webpUrl} type="image/webp" />}
+                      <img
+                        src={post.imageUrl}
+                        loading="lazy"
+                        decoding="async"
+                        alt={post.username}
+                        className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </picture>
+
+                    {/* Dark gradient readability overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-black/30 pointer-events-none" />
+
+                    {/* Top Reels Header */}
+                    <div className="relative z-10 flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10">
+                        <div className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
+                        <span className="text-[8px] sm:text-[9px] font-mono font-bold text-white tracking-wider">REELS 9:16</span>
                       </div>
                       
-                      <span className="bg-[#cdea8c] text-[#18077b] text-[8px] sm:text-[9.5px] font-mono font-black py-0.5 px-2.5 rounded-full shadow-inner uppercase tracking-wider">
+                      <span className="bg-[#cdea8c] text-[#18077b] text-[8.5px] sm:text-[9.5px] font-mono font-black py-1 px-3 rounded-full shadow-md uppercase tracking-wider">
                         {post.growth}
                       </span>
                     </div>
 
-                    <div className="my-auto whitespace-normal select-none pr-1">
-                      <div className="text-[#18077b] opacity-15 text-5xl font-serif h-4 -ml-1">“</div>
-                      <p className="text-[11.5px] sm:text-[13px] text-slate-800 leading-relaxed font-bold font-sans italic relative z-10">
+                    {/* Middle Testimonial Content */}
+                    <div className="relative z-10 my-auto whitespace-normal select-none py-2">
+                      <div className="text-[#cdea8c] opacity-40 text-4xl font-serif h-3 -ml-1">“</div>
+                      <p className="text-[12px] sm:text-[13.5px] text-white leading-relaxed font-bold font-sans drop-shadow-md">
                         {post.testimonial}
                       </p>
-                      <div className="text-[#18077b] opacity-15 text-5xl font-serif h-3 text-right -mr-1">”</div>
+                      <div className="text-[#cdea8c] opacity-40 text-4xl font-serif h-2 text-right -mr-1">”</div>
                     </div>
 
-                    <div className="border-t border-slate-100 pt-3 flex items-center justify-between">
-                      <div className="flex items-center gap-1">
-                        <Heart className="w-3.5 h-3.5 fill-[#18077b] text-[#18077b]" />
-                        <span className="text-[9.5px] font-black text-slate-700 font-mono">
-                          {post.likes.toLocaleString()} curtidas
-                        </span>
-                      </div>
-                      <span className="text-[8px] font-mono text-slate-400 font-bold uppercase tracking-widest">9:16 REELS</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-col gap-2.5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#18077b] to-[#cdea8c] flex items-center justify-center text-white text-[10px] font-mono font-black shadow-sm uppercase">
-                          {post.username.substring(0, 2)}
+                    {/* Bottom Author & Engagement */}
+                    <div className="relative z-10 border-t border-white/15 pt-3 flex flex-col gap-2">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#18077b] to-[#cdea8c] flex items-center justify-center text-white text-[10px] font-mono font-black shadow-md uppercase border border-white/20">
+                            {post.username.substring(0, 2)}
+                          </div>
+                          <div className="flex flex-col text-left">
+                            <span className="text-[11px] sm:text-[12px] font-black text-white font-mono leading-none drop-shadow">
+                              @{post.username}
+                            </span>
+                            <span className="text-[9px] text-[#cdea8c] mt-0.5 font-mono uppercase font-bold">
+                              📍 {post.location}
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex flex-col text-left">
-                          <span className="text-[11px] font-black text-slate-900 font-mono leading-none">
-                            @{post.username}
-                          </span>
-                          <span className="text-[9px] text-[#18077b] mt-0.5 font-mono uppercase font-black">
-                             {post.location}
+
+                        <div className="flex items-center gap-1 bg-black/50 backdrop-blur-md px-2 py-1 rounded-full border border-white/10">
+                          <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+                          <span className="text-[9.5px] font-black text-white font-mono">
+                            {post.likes.toLocaleString()}
                           </span>
                         </div>
                       </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
               ))}
             </div>

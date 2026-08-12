@@ -15,6 +15,8 @@ export interface InstagramPost {
   username: string;
   location: string;
   imageUrl: string;
+  avifUrl?: string;
+  webpUrl?: string;
   likes: number;
   testimonial: string;
   growth: string;

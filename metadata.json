@@ -1,6 +1,6 @@
 {
   "name": "Apicoleteira",
-  "description": "Venda o sabor da infância - Máquinas de sorvete de massa vintage e picolés industriais fabricados em aço inox com receitas exclusivas.",
+  "description": "Venda o sabor da infância - Máquinas de sorvetes.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

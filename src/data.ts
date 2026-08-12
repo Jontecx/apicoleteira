@@ -58,8 +58,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-1",
     username: "sorvetes_do_bosque",
     location: "São Paulo, SP",
-    // This is the beautiful generated vertical image of gourmet colorful ice cream
-    imageUrl: "/src/assets/images/insta_customer_gelato_1779654577851.png",
+    imageUrl: "/post-1.jpg",
+    avifUrl: "/post-1.avif",
+    webpUrl: "/post-1.webp",
     likes: 1245,
     testimonial: "Nossa produção triplicou e a máquina de sorvete retrô é a maior atração da loja! Clientes amam filmar o sorvete saindo cremoso.",
     growth: "+140% no faturamento"
@@ -68,7 +69,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-2",
     username: "picoles_artesanais_sul",
     location: "Curitiba, PR",
-    imageUrl: "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?q=70&w=480&auto=format&fit=crop&fm=webp",
+    imageUrl: "/post-2.jpg",
+    avifUrl: "/post-2.avif",
+    webpUrl: "/post-2.webp",
     likes: 852,
     testimonial: "Fabricação robusta em aço inox. A refrigeração não falha mesmo nas semanas de pico. Os picolés saem perfeitos, sem bolhas de ar.",
     growth: "Retorno do investimento em 4 meses"
@@ -77,7 +80,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-3",
     username: "retro_creams",
     location: "Salvador, BA",
-    imageUrl: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=70&w=480&auto=format&fit=crop&fm=webp",
+    imageUrl: "/post-3.jpg",
+    avifUrl: "/post-3.avif",
+    webpUrl: "/post-3.webp",
     likes: 2130,
     testimonial: "A receita tradicional enviada pelo Sr. Aurélio virou o nosso campeão de vendas. O gosto do sorvete americano de antigamente é imbatível!",
     growth: "+300 litros diários"
@@ -86,7 +91,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-4",
     username: "delicias_da_infancia",
     location: "Campinas, SP",
-    imageUrl: "https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=70&w=480&auto=format&fit=crop&fm=webp",
+    imageUrl: "/post-4.jpg",
+    avifUrl: "/post-4.avif",
+    webpUrl: "/post-4.webp",
     likes: 981,
     testimonial: "Apicoleteira é sinônimo de resistência. Nossa máquina trabalha 12h por dia sem perder a constância de refrigeração. Nota dez!",
     growth: "Abriu 2ª filial"
@@ -95,7 +102,9 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
     id: "post-5",
     username: "gelateria_aurora",
     location: "Belo Horizonte, MG",
-    imageUrl: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?q=70&w=480&auto=format&fit=crop&fm=webp",
+    imageUrl: "/post-5.jpg",
+    avifUrl: "/post-5.avif",
+    webpUrl: "/post-5.webp",
     likes: 1540,
     testimonial: "Sorvete denso, brilhoso e muito lucrativo. O toque de nostalgia do picolé vintage atrai tanto crianças quanto adultos saudosistas.",
     growth: "80% de margem de lucro"
