@@ -32,7 +32,7 @@ export default function App() {
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactModel, setContactModel] = useState("Máquina de Sorvete americano");
+  const [contactModel, setContactModel] = useState("Máquina de sorvete americano");
   const [contactState, setContactState] = useState("");
 
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
@@ -314,7 +314,7 @@ export default function App() {
               </p>
 
               <p className="mt-4 text-xs sm:text-sm text-[#000000] leading-relaxed opacity-85">
-                Nossas máquinas são adaptadas individualmente para cada cliente. Mantemos a altíssima constância de refrigeração para fornecer o sorvete mais delicioso/saboroso do mercado.
+                Nossas máquinas são adaptadas individualmente para cada cliente. Mantemos a altíssima constância de refrigeração para fornecer o sorvete mais delicioso do mercado.
               </p>
 
               <div className="mt-8 p-4 sm:p-6 bg-white/95 border border-[#cdea8c] border-l-4 sm:border-l-8 border-l-[#18077b] rounded-r-2xl sm:rounded-r-3xl text-[#000000] shadow-md relative overflow-hidden">
@@ -444,7 +444,7 @@ export default function App() {
             {/* Description Right */}
             <div className="text-left flex flex-col justify-center space-y-5 lg:pl-6">
               <h3 className="font-sans font-black text-2xl sm:text-4.5xl text-[#000000] uppercase tracking-tight leading-none">
-                Máquinas modernas <br /> e com boa duração.
+                Construção Retrô <br /> com a modernidade do aço.
               </h3>
 
               <ul className="space-y-4 text-[#000000] font-normal mt-2">
@@ -606,7 +606,7 @@ export default function App() {
               Suporte de Vendas diretamente de S.P
             </span>
             <h2 className="font-sans font-black text-3xl sm:text-5xl text-[#000000] mt-2 uppercase leading-none tracking-tight">
-              ENCOMENDE SEU MAQUINÁRIO <span className="text-[#18077b]">SOB MEDIDA</span>
+              ENCOMENDE SEU EQUIPAMENTO <span className="text-[#18077b]">SOB MEDIDA</span>
             </h2>
             <p className="text-[#000000] text-xs sm:text-sm mt-3 max-w-xl leading-relaxed">
               Nossos engenheiros e artesãos estão prontos para montar seu equipamento nas especificações técnicas mais cobiçadas do mercado nacional.
@@ -688,9 +688,9 @@ export default function App() {
                    onChange={(e) => setContactModel(e.target.value)}
                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#18077b] transition-colors"
                 >
-                  <option value="Máquina de Sorvete americano">Máquina de Sorvete americano</option>
-                  <option value="Produtos de massa">Produtos de massa</option>
-                  <option value="Combo completo (Máquina + Receitas)">Combo completo (Máquina + Receitas)</option>
+                  <option value="Máquina de sorvete americano">Máquina de sorvete americano</option>
+                  <option value="Máquina de bancada">Máquina de bancada</option>
+                  <option value="Máquina de piso">Máquina de piso</option>
                 </select>
               </div>
 
