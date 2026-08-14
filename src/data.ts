@@ -111,6 +111,25 @@ export const INSTAGRAM_POSTS: InstagramPost[] = [
   }
 ];
 
+export const MACHINE_SLIDES = [
+  {
+    id: "maquina-1",
+    label: "Máquina de Sorvete Americano & Picolé",
+    avifUrl: "/maquina.avif",
+    webpUrl: "/maquina.webp",
+    imageUrl: "/maquina.jpg",
+    alt: "Aço Inox Apicoleteira - Máquina 1"
+  },
+  {
+    id: "maquina-2",
+    label: "Estrutura Industrial em Aço Inox",
+    avifUrl: "/maquina2.avif",
+    webpUrl: "/maquina2.webp",
+    imageUrl: "/maquina2.jpg",
+    alt: "Aço Inox Apicoleteira - Máquina 2"
+  }
+];
+
 export const COMPANY_DETAILS = {
   founded: 1972,
   founder: "Aurélio Pelagio",

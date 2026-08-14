@@ -26,7 +26,7 @@ import {
   ShoppingBag,
   X
 } from "lucide-react";
-import { COMPANY_DETAILS, INSTAGRAM_POSTS } from "./data";
+import { COMPANY_DETAILS, INSTAGRAM_POSTS, MACHINE_SLIDES } from "./data";
 
 export default function App() {
   const [showVideoModal, setShowVideoModal] = useState(false);
@@ -37,6 +37,19 @@ export default function App() {
 
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [isTestimonialPaused, setIsTestimonialPaused] = useState(false);
+  const [currentMachineSlide, setCurrentMachineSlide] = useState(0);
+  const [isMachinePaused, setIsMachinePaused] = useState(false);
+
+  // Machine slideshow auto-timer (alternates between maquina, maquina2, etc.)
+  useEffect(() => {
+    if (isMachinePaused) return;
+
+    const machineInterval = setInterval(() => {
+      setCurrentMachineSlide((prev) => (prev + 1) % MACHINE_SLIDES.length);
+    }, 3800);
+
+    return () => clearInterval(machineInterval);
+  }, [isMachinePaused]);
 
   // Testimonials manual & automatic scroll control
   const testimonialScrollRef = useRef<HTMLDivElement>(null);
@@ -378,19 +391,54 @@ export default function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-5xl mx-auto mb-12">
             
-            {/* Square Image Left */}
-            <div className="w-full relative aspect-[4/3] lg:aspect-square overflow-hidden bg-white rounded-2xl lg:rounded-none shadow-md lg:shadow-none border border-[#cdea8c]">
-              <picture className="w-full h-full">
-                <source srcset="/maquina.avif" type="image/avif" />
-                <source srcset="/maquina.webp" type="image/webp" />
-                <img
-                  src="/maquina.jpg"
-                  loading="lazy"
-                  decoding="async"
-                  alt="Aço Inox Apicoleteira"
-                  className="w-full h-full object-cover pointer-events-none"
-                />
-              </picture>
+            {/* Square Image Left - Auto Alternating Machine Slideshow */}
+            <div 
+              className="w-full relative aspect-[4/3] lg:aspect-square overflow-hidden bg-slate-900 rounded-2xl lg:rounded-none shadow-md lg:shadow-none group"
+              onMouseEnter={() => setIsMachinePaused(true)}
+              onMouseLeave={() => setIsMachinePaused(false)}
+              onTouchStart={() => setIsMachinePaused(true)}
+              onTouchEnd={() => setIsMachinePaused(false)}
+            >
+              {MACHINE_SLIDES.map((slide, idx) => (
+                <div
+                  key={slide.id}
+                  className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${
+                    idx === currentMachineSlide ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+                  }`}
+                >
+                  <picture className="w-full h-full">
+                    <source srcset={slide.avifUrl} type="image/avif" />
+                    <source srcset={slide.webpUrl} type="image/webp" />
+                    <img
+                      src={slide.imageUrl}
+                      loading="lazy"
+                      decoding="async"
+                      alt={slide.alt}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </picture>
+                </div>
+              ))}
+
+              {/* Navigation arrows in the bottom right corner */}
+              <div className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setCurrentMachineSlide((prev) => (prev === 0 ? MACHINE_SLIDES.length - 1 : prev - 1))}
+                  aria-label="Máquina anterior"
+                  className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#18077b] text-white flex items-center justify-center backdrop-blur-md border border-white/15 shadow-md transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrentMachineSlide((prev) => (prev + 1) % MACHINE_SLIDES.length)}
+                  aria-label="Próxima máquina"
+                  className="w-8 h-8 rounded-full bg-black/60 hover:bg-[#18077b] text-white flex items-center justify-center backdrop-blur-md border border-white/15 shadow-md transition-colors"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
             {/* Description Right */}
