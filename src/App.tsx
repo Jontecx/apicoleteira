@@ -15,7 +15,6 @@ import {
   Clock,
   Instagram,
   Youtube,
-  MessageCircle,
   ChevronRight,
   ChevronLeft,
   ChevronUp,
@@ -33,7 +32,7 @@ export default function App() {
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
-  const [contactModel, setContactModel] = useState("Máquina de sorvete de Massa");
+  const [contactModel, setContactModel] = useState("Máquina de Sorvete americano");
   const [contactState, setContactState] = useState("");
 
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
@@ -370,10 +369,10 @@ export default function App() {
           
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
             <h2 className="font-sans font-black text-3xl sm:text-4xl md:text-5xl text-[#000000] tracking-tight leading-[0.95] uppercase">
-              Qualidade <span className="text-[#18077b]">‘garantida’</span> <br /> em Aço Inox
+              Qualidade <span className="text-[#18077b]">garantida</span> <br /> em Aço Inox
             </h2>
             <p className="mt-4 text-xs sm:text-sm text-[#000000] max-w-xl mx-auto leading-relaxed">
-              Diga adeus ‘ao plástico e à madeira’ comum. Nossos maquinários de alta engenharia contam com resistência profissional definitiva.
+              Diga adeus ao plástico e à madeira comum. Nossos maquinários de alta engenharia contam com resistência profissional definitiva.
             </p>
           </div>
 
@@ -587,7 +586,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="block font-black text-slate-900 uppercase tracking-wider text-[10px] font-mono">Horário de Operação</span>
-                    <span className="text-[#000000] leading-relaxed text-xs">Segunda a Sexta: 08:00h às 18:00h <br /> Sábados: 09:00h às 13:00h</span>
+                    <span className="text-[#000000] leading-relaxed text-xs">Segunda a Sexta: 08:00h às 18:00h</span>
                   </div>
                 </div>
 
@@ -601,13 +600,6 @@ export default function App() {
                   </div>
                 </div>
 
-              </div>
-
-              <div className="pt-6 border-t border-slate-100 text-[#000000] text-xs">
-                <span className="text-[10px] font-mono font-black text-[#18077b] uppercase block mb-1">
-                  1 Ano de Garantia de Fábrica
-                </span>
-                Cada máquina recebe número de série especial e assinatura de placa de latão de fábrica para valor de revenda permanente.
               </div>
 
             </div>
@@ -648,7 +640,7 @@ export default function App() {
                    onChange={(e) => setContactModel(e.target.value)}
                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#18077b] transition-colors"
                 >
-                  <option value="Máquina de sorvete de Massa">Máquina de sorvete de Massa</option>
+                  <option value="Máquina de Sorvete americano">Máquina de Sorvete americano</option>
                   <option value="Produtos de massa">Produtos de massa</option>
                   <option value="Combo completo (Máquina + Receitas)">Combo completo (Máquina + Receitas)</option>
                 </select>
@@ -688,75 +680,54 @@ export default function App() {
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <div className="flex items-center gap-3">
                 <div className="relative flex items-center h-10 shrink-0">
-                  <img 
-                    src="logo.webp" 
-                    loading="eager"
-                    decoding="async"
-                    fetchPriority="high"
-                    alt="Logo Apicoleteira" 
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (!target.dataset.triedJpg) {
-                        target.dataset.triedJpg = "true";
-                        target.src = "logo.jpg";
-                      } else {
-                        target.style.display = 'none';
-                        const fallback = target.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.classList.remove('hidden');
-                      }
-                    }}
-                    className="max-h-10 w-auto object-contain select-none"
-                  />
-                  <div className="logo hidden flex items-center gap-1">
-                    <div className="w-4 h-4 rounded-[4px] bg-white -rotate-20" />
-                    <div className="w-4 h-4 rounded-[4px] bg-[#cdea8c] rotate-20 -ml-2.5" />
-                  </div>
+                  <picture>
+                    <source srcset="/logo.avif" type="image/avif" />
+                    <source srcset="/logo.webp" type="image/webp" />
+                    <img 
+                      src="/logo.jpg" 
+                      loading="lazy"
+                      decoding="async"
+                      alt="Logo Apicoleteira" 
+                      className="max-h-10 w-auto object-contain select-none"
+                    />
+                  </picture>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-sans font-black text-sm text-white tracking-widest leading-none">
                     APICOLETEIRA®
                   </span>
                   <span className="text-[9px] uppercase font-mono tracking-widest text-[#cdea8c] mt-1 font-bold">
-                    Tradição e Inox Desde 1972
+                    tradição e qualidade
                   </span>
                 </div>
               </div>
               <p className="mt-4 text-xs text-slate-500 max-w-sm">
-                Focados na fabricação de alto padrão de máquinas de sorvete de massa retrô de extrema durabilidade e rendimento térmico impecável.
+                Focados na fabricação de alto padrão de máquinas de sorvete americano de extrema durabilidade e rendimento térmico impecável.
               </p>
             </div>
 
             <div className="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500">
-                FALE CONOSCO / MOOCA SÃO PAULO
+                FALE CONOSCO / VILA DIVA, SÃO PAULO
               </span>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://www.youtube.com/watch?v=IjmbX90_IFg"
+                  href={COMPANY_DETAILS.ytInterviewUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="w-9 h-9 rounded-full bg-slate-900 hover:bg-[#18077b] text-white flex items-center justify-center transition-all shadow border border-slate-800"
-                  aria-label="YouTube channel"
+                  aria-label="Canal no YouTube"
                 >
                   <Youtube className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href={COMPANY_DETAILS.instagramUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="w-9 h-9 rounded-full bg-slate-900 hover:bg-[#18077b] text-white flex items-center justify-center transition-all shadow border border-slate-800"
-                  aria-label="Instagram handle"
+                  aria-label="Instagram Oficial"
                 >
                   <Instagram className="w-4 h-4" />
-                </a>
-                <a
-                  href={getWhatsAppLink()}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-9 h-9 rounded-full bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center transition-all shadow border border-slate-800"
-                  aria-label="WhatsApp conversation"
-                >
-                  <MessageCircle className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -765,7 +736,7 @@ export default function App() {
 
           <div className="pt-12 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-650 gap-4">
             <p className="text-center sm:text-left font-mono text-[10px]">
-              © 2026 APICOLETEIRA. Todos os direitos reservados. CNPJ: 14.240.027/0001-92
+              © 2026 APICOLETEIRA. Todos os direitos reservados. CNPJ: 44.907.021/0001-60
             </p>
             <div className="flex items-center gap-4 text-slate-500">
               <a href="#inicio" className="hover:underline hover:text-white">Início</a>

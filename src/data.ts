@@ -116,9 +116,10 @@ export const COMPANY_DETAILS = {
   founder: "Aurélio Pelagio",
   phone: "(11) 94340-0270",
   whatsapp: "5511943400270",
-  address: "Rua do Oratório, 1450 - Mooca, São Paulo - SP, 03116-000",
+  address: "R. Carolina Soares, 944 - Vila Diva, São Paulo - SP, 02554-000",
   email: "contato@apicoleteira.com.br",
   ytInterviewUrl: "https://www.youtube.com/watch?v=IjmbX90_IFg&t=47s",
+  instagramUrl: "https://www.instagram.com/apicoleteiraoficial/",
   quote: "Se você é por Deus, Deus é por você.",
   slogan: "Venda o sabor da infância"
 };
