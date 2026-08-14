@@ -609,7 +609,7 @@ export default function App() {
               ENCOMENDE SEU EQUIPAMENTO <span className="text-[#18077b]">SOB MEDIDA</span>
             </h2>
             <p className="text-[#000000] text-xs sm:text-sm mt-3 max-w-xl leading-relaxed">
-              Nossos engenheiros e artesãos estão prontos para montar seu equipamento nas especificações técnicas mais cobiçadas do mercado nacional.
+              Estamos prontos para montar seu equipamento nas especificações técnicas mais cobiçadas do mercado.
             </p>
           </div>
 
